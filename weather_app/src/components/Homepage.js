@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { getWeatherData } from '../utils/Utils';
+import { getForecastData, getWeatherData } from '../utils/Utils';
 import './Homepage.css';
 import search_icon from '../asset/search.png'
 import clear_icon from '../asset/clear.png'
@@ -14,9 +14,11 @@ import visibility_icon from '../asset/visibility.png'
 const Homepage = () => {
   const inputRef = useRef("")
   const [weatherData, setWeatherData] = useState(false);
+  const [forecastData, setforecastData] = useState(false);
 
   useEffect(() => {
     getWeatherData("New York", setWeatherData);
+    getForecastData("New York", setforecastData)
   }, []);
 
   const allIcons = {
